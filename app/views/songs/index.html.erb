@@ -7,11 +7,23 @@
   <form class="form-wrapper cf">
       <div class="search">
         <input type="text" name="search" placeholder="Search..">
+
+        <%= form_tag(songs_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Songs" %>
+        <%= submit_tag "Search" %>
+        <% end %>
+
+        <% if @songs.present? %>
+          <%= render @songs %>
+        <% else %>
+          <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+        <% end %>
+
         <button type="submit">Search</button>
       </div>
   </form>
 </div>
 
-  <video autoplay loop id="bgvid">
-    <source src="http://ryanj.tech/concert.mp4" type="video/mp4">
-  </video>
+<video autoplay loop id="bgvid">
+  <source src="http://ryanj.tech/concert.mp4" type="video/mp4">
+</video>
