@@ -16,7 +16,7 @@
         <% if @songs.present? %>
           <%= render @songs %>
         <% else %>
-          <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+          <p>There are no songs containing the term(s) <%= params[:search] %>.</p>
         <% end %>
 
         <button type="submit">Search</button>
